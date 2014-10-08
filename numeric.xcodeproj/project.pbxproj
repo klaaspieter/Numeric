@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A14D6FF719E553110015A944 /* TimeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D6FF619E553110015A944 /* TimeSpec.swift */; };
 		A1CB992819DBE6C800E678ED /* Numeric.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CB992719DBE6C800E678ED /* Numeric.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1CB993C19DBE6EA00E678ED /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB993B19DBE6EA00E678ED /* Bytes.swift */; };
 		A1F6F34219E54AE800634736 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6F34119E54AE800634736 /* Time.swift */; };
@@ -75,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A14D6FF619E553110015A944 /* TimeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSpec.swift; sourceTree = "<group>"; };
 		A1CB992219DBE6C800E678ED /* Numeric.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Numeric.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CB992619DBE6C800E678ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CB992719DBE6C800E678ED /* Numeric.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Numeric.h; sourceTree = "<group>"; };
@@ -154,10 +156,11 @@
 		A1F6F34819E54BB200634736 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				A1F6F34919E54BB200634736 /* Supporting Files */,
 				A1F6F3F019E54D9F00634736 /* Nimble.xcodeproj */,
 				A1F6F3E019E54D8F00634736 /* Quick.xcodeproj */,
 				A1F6F34B19E54BB200634736 /* BytesSpec.swift */,
-				A1F6F34919E54BB200634736 /* Supporting Files */,
+				A14D6FF619E553110015A944 /* TimeSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1F6F34C19E54BB200634736 /* BytesSpec.swift in Sources */,
+				A14D6FF719E553110015A944 /* TimeSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
