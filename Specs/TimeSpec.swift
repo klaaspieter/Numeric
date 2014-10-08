@@ -17,7 +17,7 @@ class TimeSpec : QuickSpec {
           1.year: .CalendarUnitYear]
 
         for (component, unit) in components {
-          expect(component.valueForComponent(unit)).to(equal(1))
+          expect(component.valueForComponent(unit)) == 1
         }
       }
     }
