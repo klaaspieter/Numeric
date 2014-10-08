@@ -10,7 +10,69 @@
 		A1CB992819DBE6C800E678ED /* numeric.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CB992719DBE6C800E678ED /* numeric.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1CB993C19DBE6EA00E678ED /* bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB993B19DBE6EA00E678ED /* bytes.swift */; };
 		A1F6F34219E54AE800634736 /* time.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6F34119E54AE800634736 /* time.swift */; };
+		A1F6F34C19E54BB200634736 /* BytesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6F34B19E54BB200634736 /* BytesSpec.swift */; };
+		A1F6F3FF19E54DC200634736 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F6F3E919E54D8F00634736 /* Quick.framework */; };
+		A1F6F40219E54DD100634736 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F6F3F819E54DA000634736 /* Nimble.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A1F6F3E819E54D8F00634736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1F6F3E019E54D8F00634736 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DAEB6B8E1943873100289F44;
+			remoteInfo = Quick;
+		};
+		A1F6F3EA19E54D8F00634736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1F6F3E019E54D8F00634736 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DAEB6B991943873100289F44;
+			remoteInfo = QuickTests;
+		};
+		A1F6F3EC19E54D8F00634736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1F6F3E019E54D8F00634736 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A5D117C19473F2100F6D13D;
+			remoteInfo = "Quick-iOS";
+		};
+		A1F6F3EE19E54D8F00634736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1F6F3E019E54D8F00634736 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A5D118619473F2100F6D13D;
+			remoteInfo = "Quick-iOSTests";
+		};
+		A1F6F3F719E54DA000634736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1F6F3F019E54D9F00634736 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74291940169200FFFC47;
+			remoteInfo = "Nimble-iOS";
+		};
+		A1F6F3F919E54DA000634736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1F6F3F019E54D9F00634736 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74341940169200FFFC47;
+			remoteInfo = "Nimble-iOSTests";
+		};
+		A1F6F3FB19E54DA000634736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1F6F3F019E54D9F00634736 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EAD195C0D6300ED456B;
+			remoteInfo = "Nimble-OSX";
+		};
+		A1F6F3FD19E54DA000634736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1F6F3F019E54D9F00634736 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EB7195C0D6300ED456B;
+			remoteInfo = "Nimble-OSXTests";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A1CB992219DBE6C800E678ED /* numeric.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = numeric.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,6 +82,11 @@
 		A1CB993D19DBE72E00E678ED /* bytes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = bytes.playground; path = ../bytes.playground; sourceTree = "<group>"; };
 		A1F6F34019E54AA500634736 /* time.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = time.playground; sourceTree = SOURCE_ROOT; };
 		A1F6F34119E54AE800634736 /* time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = time.swift; sourceTree = "<group>"; };
+		A1F6F34719E54BB200634736 /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1F6F34A19E54BB200634736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1F6F34B19E54BB200634736 /* BytesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytesSpec.swift; sourceTree = "<group>"; };
+		A1F6F3E019E54D8F00634736 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = Vendor/Quick/Quick/Quick.xcodeproj; sourceTree = SOURCE_ROOT; };
+		A1F6F3F019E54D9F00634736 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Vendor/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +97,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1F6F34419E54BB200634736 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1F6F40219E54DD100634736 /* Nimble.framework in Frameworks */,
+				A1F6F3FF19E54DC200634736 /* Quick.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -37,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				A1CB992419DBE6C800E678ED /* numeric */,
+				A1F6F34819E54BB200634736 /* Specs */,
 				A1CB992319DBE6C800E678ED /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A1CB992219DBE6C800E678ED /* numeric.framework */,
+				A1F6F34719E54BB200634736 /* Specs.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +146,47 @@
 				A1CB992619DBE6C800E678ED /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1F6F34819E54BB200634736 /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				A1F6F3F019E54D9F00634736 /* Nimble.xcodeproj */,
+				A1F6F3E019E54D8F00634736 /* Quick.xcodeproj */,
+				A1F6F34B19E54BB200634736 /* BytesSpec.swift */,
+				A1F6F34919E54BB200634736 /* Supporting Files */,
+			);
+			path = Specs;
+			sourceTree = "<group>";
+		};
+		A1F6F34919E54BB200634736 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1F6F34A19E54BB200634736 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1F6F3E119E54D8F00634736 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1F6F3E919E54D8F00634736 /* Quick.framework */,
+				A1F6F3EB19E54D8F00634736 /* QuickTests.xctest */,
+				A1F6F3ED19E54D8F00634736 /* Quick.framework */,
+				A1F6F3EF19E54D8F00634736 /* Quick-iOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1F6F3F119E54D9F00634736 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1F6F3F819E54DA000634736 /* Nimble.framework */,
+				A1F6F3FA19E54DA000634736 /* NimbleTests.xctest */,
+				A1F6F3FC19E54DA000634736 /* Nimble.framework */,
+				A1F6F3FE19E54DA000634736 /* Nimble-OSXTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +221,23 @@
 			productReference = A1CB992219DBE6C800E678ED /* numeric.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		A1F6F34619E54BB200634736 /* Specs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1F6F34D19E54BB200634736 /* Build configuration list for PBXNativeTarget "Specs" */;
+			buildPhases = (
+				A1F6F34319E54BB200634736 /* Sources */,
+				A1F6F34419E54BB200634736 /* Frameworks */,
+				A1F6F34519E54BB200634736 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Specs;
+			productName = Specs;
+			productReference = A1F6F34719E54BB200634736 /* Specs.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -112,6 +248,9 @@
 				ORGANIZATIONNAME = "Klaas Pieter Annema";
 				TargetAttributes = {
 					A1CB992119DBE6C800E678ED = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					A1F6F34619E54BB200634736 = {
 						CreatedOnToolsVersion = 6.0.1;
 					};
 				};
@@ -127,15 +266,92 @@
 			mainGroup = A1CB991819DBE6C800E678ED;
 			productRefGroup = A1CB992319DBE6C800E678ED /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A1F6F3F119E54D9F00634736 /* Products */;
+					ProjectRef = A1F6F3F019E54D9F00634736 /* Nimble.xcodeproj */;
+				},
+				{
+					ProductGroup = A1F6F3E119E54D8F00634736 /* Products */;
+					ProjectRef = A1F6F3E019E54D8F00634736 /* Quick.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A1CB992119DBE6C800E678ED /* numeric */,
+				A1F6F34619E54BB200634736 /* Specs */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		A1F6F3E919E54D8F00634736 /* Quick.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Quick.framework;
+			remoteRef = A1F6F3E819E54D8F00634736 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1F6F3EB19E54D8F00634736 /* QuickTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = QuickTests.xctest;
+			remoteRef = A1F6F3EA19E54D8F00634736 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1F6F3ED19E54D8F00634736 /* Quick.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Quick.framework;
+			remoteRef = A1F6F3EC19E54D8F00634736 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1F6F3EF19E54D8F00634736 /* Quick-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Quick-iOSTests.xctest";
+			remoteRef = A1F6F3EE19E54D8F00634736 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1F6F3F819E54DA000634736 /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = A1F6F3F719E54DA000634736 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1F6F3FA19E54DA000634736 /* NimbleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NimbleTests.xctest;
+			remoteRef = A1F6F3F919E54DA000634736 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1F6F3FC19E54DA000634736 /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = A1F6F3FB19E54DA000634736 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1F6F3FE19E54DA000634736 /* Nimble-OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Nimble-OSXTests.xctest";
+			remoteRef = A1F6F3FD19E54DA000634736 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		A1CB992019DBE6C800E678ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1F6F34519E54BB200634736 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -151,6 +367,14 @@
 			files = (
 				A1F6F34219E54AE800634736 /* time.swift in Sources */,
 				A1CB993C19DBE6EA00E678ED /* bytes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1F6F34319E54BB200634736 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1F6F34C19E54BB200634736 /* BytesSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +499,38 @@
 			};
 			name = Release;
 		};
+		A1F6F34E19E54BB200634736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor/Quick/Externals/Nimble/build/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Specs/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A1F6F34F19E54BB200634736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor/Quick/Externals/Nimble/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = Specs/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -295,6 +551,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A1F6F34D19E54BB200634736 /* Build configuration list for PBXNativeTarget "Specs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1F6F34E19E54BB200634736 /* Debug */,
+				A1F6F34F19E54BB200634736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
