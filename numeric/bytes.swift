@@ -23,6 +23,29 @@ extension Int {
   public var exabytes: Int { return Int(Double(self).exabytes) }
 }
 
+extension Float {
+  public var byte: Float { return self }
+  public var bytes: Float { return self }
+
+  public var kilobyte: Float { return self.kilobytes }
+  public var kilobytes: Float { return Float(Double(self).kilobytes) }
+
+  public var megabyte: Float { return self.megabytes }
+  public var megabytes: Float { return Float(Double(self).megabytes) }
+
+  public var gigabyte: Float { return self.gigabytes }
+  public var gigabytes: Float { return Float(Double(self).gigabytes) }
+
+  public var terabyte: Float { return self.terabytes }
+  public var terabytes: Float { return Float(Double(self).terabytes) }
+
+  public var petabyte: Float { return self.petabytes }
+  public var petabytes: Float { return Float(Double(self).petabytes) }
+
+  public var exabyte: Float { return self.exabytes }
+  public var exabytes: Float { return Float(Double(self).exabytes) }
+}
+
 extension Double {
   public var byte: Double { return self }
   public var bytes: Double { return self }

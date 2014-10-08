@@ -24,5 +24,9 @@ class BytesSpec: QuickSpec {
     it("supports double types") {
       expect(5.4.gigabytes) == 5798205849.6
     }
+
+    it("supports float types") {
+      expect(Float(2.2).terabyte) == 2418925581107.2
+    }
   }
 }
