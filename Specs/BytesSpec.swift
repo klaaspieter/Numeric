@@ -11,11 +11,7 @@ import Quick
 import Nimble
 
 class BytesSpec: QuickSpec {
-    override func spec() {
-        describe("Bytes") {
-            it("fails") {
-                expect(true).to(beTruthy())
-            }
-        }
-    }
+  override func spec() {
+
+  }
 }

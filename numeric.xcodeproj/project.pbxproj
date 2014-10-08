@@ -116,7 +116,9 @@
 				A1F6F34819E54BB200634736 /* Specs */,
 				A1CB992319DBE6C800E678ED /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		A1CB992319DBE6C800E678ED /* Products */ = {
 			isa = PBXGroup;
