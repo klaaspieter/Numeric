@@ -1,3 +1,5 @@
+import Foundation
+
 extension Int {
   public var byte: Int { return self }
   public var bytes: Int { return self }

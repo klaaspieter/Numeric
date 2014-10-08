@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A1CB992819DBE6C800E678ED /* numeric.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CB992719DBE6C800E678ED /* numeric.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1CB993C19DBE6EA00E678ED /* bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB993B19DBE6EA00E678ED /* bytes.swift */; };
+		A1F6F34219E54AE800634736 /* time.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6F34119E54AE800634736 /* time.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +18,8 @@
 		A1CB992719DBE6C800E678ED /* numeric.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = numeric.h; sourceTree = "<group>"; };
 		A1CB993B19DBE6EA00E678ED /* bytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bytes.swift; sourceTree = "<group>"; };
 		A1CB993D19DBE72E00E678ED /* bytes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = bytes.playground; path = ../bytes.playground; sourceTree = "<group>"; };
+		A1F6F34019E54AA500634736 /* time.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = time.playground; sourceTree = SOURCE_ROOT; };
+		A1F6F34119E54AE800634736 /* time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +55,8 @@
 				A1CB992719DBE6C800E678ED /* numeric.h */,
 				A1CB993B19DBE6EA00E678ED /* bytes.swift */,
 				A1CB993D19DBE72E00E678ED /* bytes.playground */,
+				A1F6F34119E54AE800634736 /* time.swift */,
+				A1F6F34019E54AA500634736 /* time.playground */,
 				A1CB992519DBE6C800E678ED /* Supporting Files */,
 			);
 			path = numeric;
@@ -144,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F6F34219E54AE800634736 /* time.swift in Sources */,
 				A1CB993C19DBE6EA00E678ED /* bytes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
