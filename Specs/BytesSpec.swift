@@ -20,5 +20,9 @@ class BytesSpec: QuickSpec {
       expect(2048.kilobytes + 2.megabytes) == 4.megabytes
       expect(256.megabytes * 20 + 5.gigabytes) == 10.gigabytes
     }
+
+    it("supports double types") {
+      expect(5.4.gigabytes) == 5798205849.6
+    }
   }
 }
