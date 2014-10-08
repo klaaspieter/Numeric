@@ -1,4 +1,4 @@
-import numeric
+import Numeric
 
 1.second.ago
 2.seconds.fromNow

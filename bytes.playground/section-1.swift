@@ -1,4 +1,4 @@
-import numeric
+import Numeric
 
 1.byte
 2.bytes
