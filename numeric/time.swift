@@ -113,6 +113,21 @@ public func +(left: NSDateComponents, right: NSDateComponents) -> NSDateComponen
   return left
 }
 
+public func +(date: NSDate, components: NSDateComponents) -> NSDate {
+  let calendar = components.calendar ?? NSCalendar.autoupdatingCurrentCalendar()
+  return calendar.dateByAddingComponents(components, toDate: date, options: .allZeros) ?? date
+}
+
+public prefix func +(components: NSDateComponents) -> NSDateComponents {
+  map(calendarUnits) { unit -> () in
+    let value = components.valueForComponent(unit)
+    if value != Int(NSDateComponentUndefined) {
+      components.setValue(abs(value), forComponent:unit)
+    }
+  }
+  return components
+}
+
 public func -(left: NSDateComponents, right: NSDateComponents) -> NSDateComponents {
   map(calendarUnits) { unit -> () in
     let leftValue = left.valueForComponent(unit)
@@ -130,4 +145,19 @@ public func -(left: NSDateComponents, right: NSDateComponents) -> NSDateComponen
     left.setValue(value, forComponent: unit)
   }
   return left
+}
+
+public func-(date: NSDate, components: NSDateComponents) -> NSDate {
+  let calendar = components.calendar ?? NSCalendar.autoupdatingCurrentCalendar()
+  return calendar.dateByAddingComponents(-components, toDate: date, options: .allZeros) ?? date
+}
+
+public prefix func -(components: NSDateComponents) -> NSDateComponents {
+  map(calendarUnits) { unit -> () in
+    let value = components.valueForComponent(unit)
+    if value != Int(NSDateComponentUndefined) {
+      components.setValue(abs(value) * -1, forComponent:unit)
+    }
+  }
+  return components
 }

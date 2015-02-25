@@ -27,7 +27,7 @@ class TimeSpec : QuickSpec {
       let components = NSDateComponents()
       components.month = 1
       let date = calendar.dateByAddingComponents(components, toDate: NSDate(), options:NSCalendarOptions.allZeros)!
-      expect(1.month.fromNow.timeIntervalSinceNow).to(beCloseTo(date.timeIntervalSinceNow, within: 1))
+      expect(1.month.fromNow.timeIntervalSinceNow) ≈ date.timeIntervalSinceNow ± 1
     }
 
     it("calculates dates in the past") {
@@ -35,7 +35,7 @@ class TimeSpec : QuickSpec {
       let components = NSDateComponents()
       components.year = -2
       let date = calendar.dateByAddingComponents(components, toDate: NSDate(), options: NSCalendarOptions.allZeros)!
-      expect(2.years.ago.timeIntervalSinceNow).to(beCloseTo(date.timeIntervalSinceNow, within: 1))
+      expect(2.years.ago.timeIntervalSinceNow) ≈ date.timeIntervalSinceNow ± 1
     }
 
     context("adding") {
@@ -50,6 +50,28 @@ class TimeSpec : QuickSpec {
         components.minute = 40
         expect(1.day + 1.hour + 40.minutes) == components
       }
+
+      it("can add date components to a date") {
+        let calendar = NSCalendar.currentCalendar()
+        let components1 = NSDateComponents()
+        components1.hour = 1
+        let date1 = calendar.dateByAddingComponents(components1, toDate: NSDate(), options: NSCalendarOptions.allZeros)!
+
+        let components2 = NSDateComponents()
+        components2.hour = 2
+        let date2 = calendar.dateByAddingComponents(components2, toDate: date1, options: NSCalendarOptions.allZeros)!
+
+        expect((1.hour.fromNow + 2.hours).timeIntervalSinceNow) ≈ date2.timeIntervalSinceNow ± 1
+      }
+
+      it("supports the + prefix operator") {
+        let expected = NSDateComponents()
+        expected.month = 2
+
+        let actual = NSDateComponents()
+        actual.month = -2
+        expect(+actual) == expected
+      }
     }
 
     context("subtracting") {
@@ -63,6 +85,28 @@ class TimeSpec : QuickSpec {
         components.hour = -1
         components.minute = -40
         expect(1.day - 1.hour - 40.minutes) == components
+      }
+
+      it("can subtract date components from a date") {
+        let calendar = NSCalendar.currentCalendar()
+        let components1 = NSDateComponents()
+        components1.hour = 1
+        let date1 = calendar.dateByAddingComponents(components1, toDate: NSDate(), options: NSCalendarOptions.allZeros)!
+
+        let components2 = NSDateComponents()
+        components2.hour = -2
+        let date2 = calendar.dateByAddingComponents(components2, toDate: date1, options: NSCalendarOptions.allZeros)!
+
+        expect((1.hour.fromNow - 2.hours).timeIntervalSinceNow) ≈ date2.timeIntervalSinceNow ± 1
+      }
+
+      it("supports the - prefix operator") {
+        let expected = NSDateComponents()
+        expected.month = -2
+
+        let actual = NSDateComponents()
+        actual.month = 2
+        expect(-actual) == expected
       }
     }
 

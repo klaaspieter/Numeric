@@ -21,5 +21,10 @@ import Numeric
 1.year.ago
 2.years.fromNow
 
-(1.year + 2.years).ago
+(1.year + 2.years).fromNow
 (1.minute - 24.hours).fromNow
+
+1.year.fromNow + 2.years
+1.minute.fromNow - 24.hours
+
+(-1.year).ago
