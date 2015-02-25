@@ -37,5 +37,41 @@ class TimeSpec : QuickSpec {
       let date = calendar.dateByAddingComponents(components, toDate: NSDate(), options: NSCalendarOptions.allZeros)!
       expect(2.years.ago.timeIntervalSinceNow).to(beCloseTo(date.timeIntervalSinceNow, within: 1))
     }
+
+    context("adding") {
+      it("can add date components with the same units") {
+        expect(1.day + 1.day) == 2.days
+      }
+
+      it("can add date components with different units") {
+        let components = NSDateComponents()
+        components.day = 1
+        components.hour = 1
+        components.minute = 40
+        expect(1.day + 1.hour + 40.minutes) == components
+      }
+    }
+
+    context("subtracting") {
+      it("can subtract date components with the same units") {
+        expect(1.day - 2.day) == (-1).days
+      }
+
+      it("can subtract date components with different units") {
+        let components = NSDateComponents()
+        components.day = 1
+        components.hour = -1
+        components.minute = -40
+        expect(1.day - 1.hour - 40.minutes) == components
+      }
+    }
+
+    it("can add and subtract") {
+      let components = NSDateComponents()
+      components.day = 1
+      components.hour = 1
+      components.minute = -40
+      expect(1.day + 1.hour - 40.minutes) == components
+    }
   }
 }
