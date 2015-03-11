@@ -1,51 +1,5 @@
 import Foundation
 
-extension Int {
-  public var byte: Int { return self }
-  public var bytes: Int { return self }
-
-  public var kilobyte: Int { return self.kilobytes }
-  public var kilobytes: Int { return Int(Double(self).kilobytes) }
-
-  public var megabyte: Int { return self.megabytes }
-  public var megabytes: Int { return Int(Double(self).megabytes) }
-
-  public var gigabyte: Int { return self.gigabytes }
-  public var gigabytes: Int { return Int(Double(self).gigabytes) }
-
-  public var terabyte: Int { return self.terabytes }
-  public var terabytes: Int { return Int(Double(self).terabytes) }
-
-  public var petabyte: Int { return self.petabytes }
-  public var petabytes: Int { return Int(Double(self).petabytes) }
-
-  public var exabyte: Int { return self.exabytes }
-  public var exabytes: Int { return Int(Double(self).exabytes) }
-}
-
-extension Float {
-  public var byte: Float { return self }
-  public var bytes: Float { return self }
-
-  public var kilobyte: Float { return self.kilobytes }
-  public var kilobytes: Float { return Float(Double(self).kilobytes) }
-
-  public var megabyte: Float { return self.megabytes }
-  public var megabytes: Float { return Float(Double(self).megabytes) }
-
-  public var gigabyte: Float { return self.gigabytes }
-  public var gigabytes: Float { return Float(Double(self).gigabytes) }
-
-  public var terabyte: Float { return self.terabytes }
-  public var terabytes: Float { return Float(Double(self).terabytes) }
-
-  public var petabyte: Float { return self.petabytes }
-  public var petabytes: Float { return Float(Double(self).petabytes) }
-
-  public var exabyte: Float { return self.exabytes }
-  public var exabytes: Float { return Float(Double(self).exabytes) }
-}
-
 extension Double {
   public var byte: Double { return self }
   public var bytes: Double { return self }
