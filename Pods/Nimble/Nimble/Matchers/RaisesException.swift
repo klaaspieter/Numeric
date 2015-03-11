@@ -21,21 +21,15 @@ internal func raiseExceptionMatcher<T>(message: String, matches: (NSException?) 
     }
 }
 
-/// A Nimble matcher that succeeds when the actual expression raises an exception with
-/// the specified name, reason, and userInfo.
-public func raiseException(#named: String, #reason: String, #userInfo: NSDictionary) -> MatcherFunc<Any> {
-    return raiseExceptionMatcher("raise exception named <\(named)> with reason <\(reason)> and userInfo <\(userInfo)>") {
-        exception in
-        return exception?.name == named
-            && exception?.reason == reason
-            && exception?.userInfo == userInfo
-    }
-}
 
 /// A Nimble matcher that succeeds when the actual expression raises an exception with
 /// the specified name and reason.
-public func raiseException(#named: String, #reason: String) -> MatcherFunc<Any> {
-    return raiseExceptionMatcher("raise exception named <\(named)> with reason <\(reason)>") {
+public func raiseException(#named: String, #reason: String?) -> MatcherFunc<Any> {
+    var theReason = ""
+    if let reason = reason {
+        theReason = reason
+    }
+    return raiseExceptionMatcher("raise exception named <\(named)> and reason <\(theReason)>") {
         exception in return exception?.name == named && exception?.reason == reason
     }
 }
@@ -60,20 +54,16 @@ public func raiseException() -> MatcherFunc<Any> {
 @objc public class NMBObjCRaiseExceptionMatcher : NMBMatcher {
     var _name: String?
     var _reason: String?
-    var _userInfo: NSDictionary?
-    init(name: String?, reason: String?, userInfo: NSDictionary?) {
+    init(name: String?, reason: String?) {
         _name = name
         _reason = reason
-        _userInfo = userInfo
     }
 
     public func matches(actualBlock: () -> NSObject!, failureMessage: FailureMessage, location: SourceLocation) -> Bool {
         let block: () -> Any? = ({ actualBlock(); return nil })
         let expr = Expression(expression: block, location: location)
-        if _name != nil && _reason != nil && _userInfo != nil {
-            return raiseException(named: _name!, reason: _reason!, userInfo: _userInfo!).matches(expr, failureMessage: failureMessage)
-        } else if _name != nil && _reason != nil {
-            return raiseException(named: _name!, reason: _reason!).matches(expr, failureMessage: failureMessage)
+        if _name != nil && _reason != nil {
+            return raiseException(named: _name!, reason: _reason).matches(expr, failureMessage: failureMessage)
         } else if _name != nil {
             return raiseException(named: _name!).matches(expr, failureMessage: failureMessage)
         } else {
@@ -85,27 +75,21 @@ public func raiseException() -> MatcherFunc<Any> {
         return !matches(actualBlock, failureMessage: failureMessage, location: location)
     }
 
-    public var named: (name: String) -> NMBObjCRaiseExceptionMatcher {
+    var named: (name: String) -> NMBObjCRaiseExceptionMatcher {
         return ({ name in
-            return NMBObjCRaiseExceptionMatcher(name: name, reason: self._reason, userInfo: self._userInfo)
+            return NMBObjCRaiseExceptionMatcher(name: name, reason: self._reason)
         })
     }
 
-    public var reason: (reason: String?) -> NMBObjCRaiseExceptionMatcher {
+    var reason: (reason: String?) -> NMBObjCRaiseExceptionMatcher {
         return ({ reason in
-            return NMBObjCRaiseExceptionMatcher(name: self._name, reason: reason, userInfo: self._userInfo)
-        })
-    }
-
-    public var userInfo: (userInfo: NSDictionary?) -> NMBObjCRaiseExceptionMatcher {
-        return ({ userInfo in
-            return NMBObjCRaiseExceptionMatcher(name: self._name, reason: self._reason, userInfo: userInfo)
+            return NMBObjCRaiseExceptionMatcher(name: self._name, reason: reason)
         })
     }
 }
 
 extension NMBObjCMatcher {
     public class func raiseExceptionMatcher() -> NMBObjCRaiseExceptionMatcher {
-        return NMBObjCRaiseExceptionMatcher(name: nil, reason: nil, userInfo: nil)
+        return NMBObjCRaiseExceptionMatcher(name: nil, reason: nil)
     }
 }

@@ -16,7 +16,7 @@ extension World {
         registerSharedExample(name, closure: closure)
     }
 
-    public func describe(description: String, flags: FilterFlags, closure: () -> ()) {
+    public func describe(description: String, closure: () -> (), flags: FilterFlags) {
         var group = ExampleGroup(description: description, flags: flags)
         currentExampleGroup!.appendExampleGroup(group)
         currentExampleGroup = group
@@ -24,20 +24,20 @@ extension World {
         currentExampleGroup = group.parent
     }
 
-    public func context(description: String, flags: FilterFlags, closure: () -> ()) {
-        self.describe(description, flags: flags, closure: closure)
+    public func context(description: String, closure: () -> (), flags: FilterFlags) {
+        self.describe(description, closure: closure, flags: flags)
     }
 
-    public func fdescribe(description: String, flags: FilterFlags, closure: () -> ()) {
+    public func fdescribe(description: String, closure: () -> (), flags: FilterFlags) {
         var focusedFlags = flags
         focusedFlags[Filter.focused] = true
-        self.describe(description, flags: focusedFlags, closure: closure)
+        self.describe(description, closure: closure, flags: focusedFlags)
     }
 
-    public func xdescribe(description: String, flags: FilterFlags, closure: () -> ()) {
+    public func xdescribe(description: String, closure: () -> (), flags: FilterFlags) {
         var pendingFlags = flags
         pendingFlags[Filter.pending] = true
-        self.describe(description, flags: pendingFlags, closure: closure)
+        self.describe(description, closure: closure, flags: pendingFlags)
     }
 
     public func beforeEach(closure: BeforeExampleClosure) {
@@ -59,7 +59,7 @@ extension World {
     @objc(itWithDescription:flags:file:line:closure:)
     public func it(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
         let callsite = Callsite(file: file, line: line)
-        let example = Example(description: description, callsite: callsite, flags: flags, closure: closure)
+        let example = Example(description: description, callsite: callsite, flags: flags, closure)
         currentExampleGroup!.appendExample(example)
     }
 
@@ -95,6 +95,6 @@ extension World {
     }
 
     public func pending(description: String, closure: () -> ()) {
-        println("Pending: \(description)")
+        NSLog("Pending: %@", description)
     }
 }

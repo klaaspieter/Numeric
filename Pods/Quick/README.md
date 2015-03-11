@@ -3,7 +3,8 @@
 Quick is a behavior-driven development framework for Swift and Objective-C.
 Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta), and [Ginkgo](https://github.com/onsi/ginkgo).
 
-[![Build Status](https://travis-ci.org/Quick/Quick.svg?branch=swift-1.1)](https://travis-ci.org/Quick/Quick)
+[![Build Status](https://travis-ci.org/Quick/Quick.svg)](https://travis-ci.org/Quick/Quick)
+
 ![](https://raw.githubusercontent.com/Quick/Assets/master/Screenshots/QuickSpec%20screenshot.png)
 
 ```swift
@@ -46,29 +47,25 @@ class TableOfContentsSpec: QuickSpec {
     - [Specifying Conditional Behavior Using `context`](#specifying-conditional-behavior-using-context)
   - [Temporarily Disabling Examples or Groups Using `pending`](#temporarily-disabling-examples-or-groups-using-pending)
     - [Shorthand syntax](#shorthand-syntax)
-  - [Temporarily Running a Subset of Focused Examples](#temporarily-running-a-subset-of-focused-examples)
   - [Global Setup/Teardown Using `beforeSuite` and `afterSuite`](#global-setupteardown-using-beforesuite-and-aftersuite)
   - [Sharing Examples](#sharing-examples)
 - [Using Quick in Objective-C: The Optional Shorthand Syntax](#using-quick-in-objective-c-the-optional-shorthand-syntax)
   - [Caveat: Your Test Target Must Include At Least One Swift File](#caveat-your-test-target-must-include-at-least-one-swift-file)
 - [Nimble: Assertions Using `expect(...).to`](#nimble-assertions-using-expectto)
-- [Testing Swift Code](#testing-swift-code)
 - [Testing UIKit with Quick](#testing-uikit-with-quick)
 - [How to Install Quick](#how-to-install-quick)
   - [1. Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
   - [3. Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
-  - [4. Start writing specs!](#4-start-writing-specs)
+  - [4. Start writing specs!](#4-start-writing-specs!)
 - [Including Quick in a Git Repository Using Submodules](#including-quick-in-a-git-repository-using-submodules)
   - [Adding Quick as a Git Submodule](#adding-quick-as-a-git-submodule)
   - [Updating the Quick Submodule](#updating-the-quick-submodule)
   - [Cloning a Repository that Includes a Quick Submodule](#cloning-a-repository-that-includes-a-quick-submodule)
-- [How to Install Quick using CocoaPods](#how-to-install-quick-using-cocoapods)
+- [How to Install Quick using Beta CocoaPods](#how-to-install-quick-using-beta-cocoapods)
 - [How to Install Quick File Templates](#how-to-install-quick-file-templates)
   - [Using Alcatraz](#using-alcatraz)
   - [Manually via the Rakefile](#manually-via-the-rakefile)
-- [Configuring Quick](#configuring-quick)
-  - [Adding Global Before and After Filters](#adding-global-before-and-after-filters)
 - [Who Uses Quick](#who-uses-quick)
 - [License](#license)
 
@@ -419,41 +416,6 @@ xit(@"is only emitted once", ^{
 });
 ```
 
-### Temporarily Running a Subset of Focused Examples
-
-Sometimes it helps to focus on only one or a few examples. Running one
-or two exmaples is faster than the entire suite, after all. You can
-run only one or two by using the `fit` function. You can also focus a
-group of examples using `fdescribe` or `fcontext`:
-
-```swift
-fit("its click") {
-  // ...only this focused example will be run.
-}
-
-it("is only emitted once") {
-  // ...this example is not focused, and will not be run.
-}
-
-fdescribe("when the dolphin is near something interesting") {
-  // ...examples in this group are also focused, so they'll be run.
-}
-```
-
-```objc
-fit(@"its click", {
-  // ...only this focused example will be run.
-});
-
-it(@"is only emitted once", ^{
-  // ...this example is not focused, and will not be run.
-});
-
-fdescribe(@"when the dolphin is near something interesting", ^{
-  // ...examples in this group are also focused, so they'll be run.
-});
-```
-
 ### Global Setup/Teardown Using `beforeSuite` and `afterSuite`
 
 Some test setup needs to be performed before *any* examples are
@@ -638,8 +600,6 @@ itBehavesLike("everything under the sea")
   argument. Sorry, but that's the way the cookie crumbles!
   :cookie: :bomb:
 
-You can also focus shared examples using the `fitBehavesLike` function.
-
 ## Using Quick in Objective-C: The Optional Shorthand Syntax
 
 Quick works equally well in both Swift and Objective-C.
@@ -719,20 +679,6 @@ You can find much more detailed documentation on
 [Nimble](https://github.com/Quick/Nimble), including a
 full set of available matchers and details on how to perform asynchronous tests,
 in [the project's README](https://github.com/Quick/Nimble).
-
-## Testing Swift Code
-
-In order to test code written in Swift, you'll need to do three things:
-
-1. Set "defines module" in your `.xcodeproj` to `YES`.
-2. Mark any class/method/function you want to test `public`, since only
-   `public` symbols are exported.
-3. `import YourAppModuleName` in your unit tests.
-
-Some developers advocate adding Swift source files to your test target.
-However, this leads to [subtle, hard-to-diagnose
-errors](https://github.com/Quick/Quick/issues/91), and is not
-recommended.
 
 ## Testing UIKit with Quick
 
@@ -825,7 +771,7 @@ describe(@"didSelectRowAtIndexPath", ^{
   __block DolphinTableViewController *viewController = nil;
 
   beforeEach(^{
-    // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and
+    // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and 
     viewController = [[DolphinTableViewController alloc] init];
     [viewController beginAppearanceTransition:YES animated:NO];
     [viewController endAppearanceTransition];
@@ -848,6 +794,8 @@ QuickSpecEnd
 
 ## How to Install Quick
 
+> This module is beta software, it currently supports Xcode 6 Beta 4.
+
 Quick provides the syntax to define examples and example groups. Nimble
 provides the `expect(...).to` assertion syntax. You may use either one,
 or both, in your tests.
@@ -861,9 +809,6 @@ To use Quick and Nimble to test your iOS or OS X applications, follow these 4 ea
 
 Example projects with this complete setup is available in the
 [`Examples`](https://github.com/modocache/Quick/tree/master/Examples) directory.
-
-The master branch of Quick supports Swift 1.2. For Swift 1.1 support,
-use the `swift-1.1` branch.
 
 ### 1. Clone the Quick and Nimble repositories
 
@@ -957,44 +902,30 @@ You can read more about Git submodules
 of Git submodules in action, check out any of the repositories linked to
 in the ["Who Uses Quick"](#who-uses-quick) section of this guide.
 
-## How to Install Quick using CocoaPods
+## How to Install Quick using Beta CocoaPods
 
-If you would like to use Quick with CocoaPods today, you need to install the
-beta build of CocoaPods via `[sudo] gem install cocoapods --pre` then add Quick
-to your Podfile.
+If you would like to use Quick with CocoaPods today, you will need to use
+rubygem's [Bundler](http://bundler.io) to use the swift branch of CocoaPods. This 
+can be done by including a Gemfile that looks like this:
 
-```rb
-pod 'Quick'
+```ruby
+source 'https://rubygems.org'
+
+gem 'cocoapods', :git => 'https://github.com/CocoaPods/CocoaPods.git', :branch => 'swift'
+gem 'cocoapods-core', :git => 'https://github.com/CocoaPods/Core.git'
+gem 'xcodeproj',  :git => 'https://github.com/CocoaPods/Xcodeproj.git'
+gem 'claide', :git => 'https://github.com/CocoaPods/CLAide.git'
 ```
 
-If you need the latest cutting-edge code, use the following:
+Then run `bundle install` to start using Swift CocoaPods for just this project.
+Then in your Podfile, add the following to your test target.
 
-```rb
-pod 'Quick', :head
+```
+  pod 'Quick', :git => 'https://github.com/Quick/Quick', :tag => 'v0.2.1'
 ```
 
-## How to Install Quick using [Carthage](https://github.com/Carthage/Carthage)
-As Test targets do not have the "Embedded Binaries" section, the frameworks must be added to the target's "Link Binary With Libraries" as well as a "Copy Files" build phase to copy them to the target's Frameworks destination.  
- > As Carthage builds dynamic frameworks, you will need a valid code signing identity set up.
-
-1. Add Quick to your **[Cartfile.private](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfileprivate)**
-
-    ```
-    github "Quick/Quick"
-    github "Quick/Nimble"
-    ```
-    
-2. Run `carthage update` 
-3. From your `Carthage/Build/[platform]/` directory, add both Quick and Nimble to your test target's **Link Binary With Libraries** build phase
-    ![](http://i.imgur.com/pBkDDk5.png)
-
-4. For your test target, create a new build phase of type **Copy Files**
-    ![](http://i.imgur.com/jZATIjQ.png) 
-
-5. Set the **Destination** to **Frameworks**, then add both frameworks
-    ![](http://i.imgur.com/rpnyWGH.png)
-
-This is not 'the one and only way' to use Carthage to manage dependencies, for further reference check out the [Carthage documentation](https://github.com/Carthage/Carthage/blob/master/README.md) 
+Finally, run `bundle exec pod install`. The `bundle exec` ensures you're using
+the Swift CocoaPods version from your Gemfile.
 
 ## How to Install Quick File Templates
 
@@ -1025,126 +956,6 @@ Uninstalling is easy, too:
 $ rake templates:uninstall
 ```
 
-## Configuring Quick
-
-The Quick configuration object exposes custom options to alter the behavior of
-the framework. The intention of this hook is to provide a global configuration
-to meet the needs of your project. *QuickConfiguration* is never meant to be
-instantiated. If you do so, an exception will be raised. Instead, subclass it
-and override the `configure()` class function, like so:
-
-```swift
-// Swift
-
-import Quick
-import Nimble
-
-class ProjectDataTestConfiguration: QuickConfiguration {
-  override class func configure(configuration : Configuration) {
-    // set options on the configuration object
-  }
-}
-```
-
-```objc
-// Objective-C
-
-#import <Quick/Quick.h>
-#import <Nimble/Nimble.h>
-
-QuickConfigurationBegin(ProjectDataTestConfiguration)
-
-+ (void)configure:(Configuration *configuration) {
-  // set options of the configuration object
-}
-
-QuickConfigurationEnd
-```
-
-Projects may include several configurations. However, Quick does not make any
-guarantee about the order in which they are executed.
-
-### Adding Global Before and After Filters
-
-Similar to `beforeEach()` and `afterEach()` functions in QuickSpec(s), global
-filters can be applied to all tests. For example, a computed value may need to
-be reset before each test case. In the following case, it is assumed that the
-tests rely on the `height` property of the `Dorsal` singleton to be 0 in order
-to do some sort of mathematical computation.
-
-```swift
-// Swift
-
-import Quick
-import Nimble
-
-class FinConfiguration: QuickConfiguration {
-  override class func configure(configuration: Configuration) {
-    configuration.beforeEach() {
-      fin = Dorsal.sharedFin()
-      fin.height = 0
-    }
-  }
-}
-```
-
-```objc
-// Objective-C
-
-#import <Quick/Quick.h>
-#import "Dorsal.h"
-
-QuickConfigurationBegin(FinConfiguration)
-
-+ (void)configure:(Configuration *)configuration {
-  [configuration beforeEach:^{
-    Dorsal *fin = [Dorsal sharedFin];
-    fin.height = 0;
-  }];
-}
-
-QuickConfigurationEnd
-```
-
-Every test resets the `height` property to 0.  Therefore, our tests with various
-computations remain entirely independent.
-
-In addition, Quick allows you to access metadata regarding the tests. The
-framework provides `beforeSuite()` and `afterSuite()` closures with
-metadata. Metadata is passed into the closure like so:
-
-```swift
-// Swift
-
-import Quick
-import Nimble
-
-class Fin2Configuration: QuickConfiguration {
-  override class func configure(configuration: Configuration) {
-    configuration.beforeEach({ (exampleMetadata : ExampleMetadata) -> () in
-      // work with metadata
-    })
-  }
-}
-```
-
-```objc
-// Objective-C
-
-#import <Quick/Quick.h>
-#import "Dorsal.h"
-
-QuickConfigurationBegin(Fin2Configuration)
-
-+ (void)configure:(Configuration *)configuration {
-  [configuration beforeEachWithMetadata:^(ExampleMetadata *data) {
-    // work with metadata
-  }];
-}
-
-QuickConfigurationEnd
-```
-
 ## Who Uses Quick
 
 Quick is used by many companies, open-source projects, and individuals,
@@ -1165,3 +976,4 @@ including [GitHub](https://github.com/github) and
 ## License
 
 Apache 2.0 license. See the `LICENSE` file for details.
+
