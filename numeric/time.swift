@@ -76,3 +76,26 @@ extension Int {
     return components
   }
 }
+
+extension NSDate {
+  public class func create(era: Int = 1, year: Int = 2001, month: Int = 1, day: Int = 1, hour: Int = 0, minute: Int = 0, second: Int = 0, nanosecond: Int = 0) -> NSDate {
+    return NSDateComponents.create(era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond).date!
+  }
+}
+
+extension NSDateComponents {
+  public class func create(era: Int = 1, year: Int = 2001, month: Int = 1, day: Int = 1, hour: Int = 0, minute: Int = 0, second: Int = 0, nanosecond: Int = 0, calendar: NSCalendar? = nil) -> NSDateComponents {
+    let components = NSDateComponents()
+    components.era = era
+    components.year = year
+    components.month = month
+    components.day = day
+    components.hour = hour
+    components.minute = minute
+    components.second = second
+    components.nanosecond = nanosecond
+    components.calendar = calendar ?? NSCalendar.autoupdatingCurrentCalendar()
+    return components
+  }
+
+}

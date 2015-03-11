@@ -38,6 +38,36 @@ class TimeSpec : QuickSpec {
       expect(2.years.ago.timeIntervalSinceNow) ≈ date.timeIntervalSinceNow ± 1
     }
 
+    context("instantiation") {
+      it("can create dates using date components") {
+        let components = NSDateComponents()
+        components.era = 1
+        components.year = 1986
+        components.month = 6
+        components.day = 18
+        components.hour = 2
+        components.minute = 2
+        components.second = 2
+        components.nanosecond = 2
+        components.calendar = NSCalendar.autoupdatingCurrentCalendar()
+        expect(components.date!) == NSDate.create(era: 1, year: 1986, month: 6, day: 18, hour: 2, minute: 2, second: 2, nanosecond: 2)
+      }
+
+      it("uses default values for components that aren't specified") {
+        let components = NSDateComponents()
+        components.era = 1
+        components.year = 2001
+        components.month = 1
+        components.day = 1
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        components.nanosecond = 0
+        components.calendar = NSCalendar.autoupdatingCurrentCalendar()
+        expect(components.date!) == NSDate.create()
+      }
+    }
+
     context("adding") {
       it("can add date components with the same units") {
         expect(1.day + 1.day) == 2.days
