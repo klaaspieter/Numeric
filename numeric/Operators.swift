@@ -17,16 +17,16 @@ let calendarUnits: [NSCalendarUnit] = [
   NSCalendarUnit.CalendarUnitYearForWeekOfYear
 ]
 
-public func +(lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
+public func apply(lhs: NSDateComponents, rhs: NSDateComponents, f: ((Int, Int) -> Int)) -> NSDateComponents {
   map(calendarUnits) { unit -> () in
     let leftValue = lhs.valueForComponent(unit)
     let rightValue = rhs.valueForComponent(unit)
     var value: Int
 
     if leftValue != Int(NSDateComponentUndefined) && rightValue != Int(NSDateComponentUndefined) {
-      value = leftValue + rightValue
+      value = f(leftValue, rightValue)
     } else if leftValue == Int(NSDateComponentUndefined) && rightValue != Int(NSDateComponentUndefined) {
-      value = rightValue
+      value = f(0, rightValue)
     } else {
       value = leftValue
     }
@@ -36,11 +36,16 @@ public func +(lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents 
   return lhs
 }
 
-public func +(date: NSDate, components: NSDateComponents) -> NSDate {
-  let calendar = components.calendar ?? NSCalendar.autoupdatingCurrentCalendar()
-  return calendar.dateByAddingComponents(components, toDate: date, options: .allZeros) ?? date
+// NSDateComponents
+public func +(lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
+  return apply(lhs, rhs, +)
 }
 
+public func -(lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
+  return apply(lhs, rhs, -)
+}
+
+// Prefix operators
 public prefix func +(components: NSDateComponents) -> NSDateComponents {
   map(calendarUnits) { unit -> () in
     let value = components.valueForComponent(unit)
@@ -51,30 +56,6 @@ public prefix func +(components: NSDateComponents) -> NSDateComponents {
   return components
 }
 
-public func -(lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
-  map(calendarUnits) { unit -> () in
-    let leftValue = lhs.valueForComponent(unit)
-    let rightValue = rhs.valueForComponent(unit)
-    var value: Int
-
-    if leftValue != Int(NSDateComponentUndefined) && rightValue != Int(NSDateComponentUndefined) {
-      value = leftValue - rightValue
-    } else if leftValue == Int(NSDateComponentUndefined) && rightValue != Int(NSDateComponentUndefined) {
-      value = -rightValue
-    } else {
-      value = leftValue
-    }
-
-    lhs.setValue(value, forComponent: unit)
-  }
-  return lhs
-}
-
-public func-(date: NSDate, components: NSDateComponents) -> NSDate {
-  let calendar = components.calendar ?? NSCalendar.autoupdatingCurrentCalendar()
-  return calendar.dateByAddingComponents(-components, toDate: date, options: .allZeros) ?? date
-}
-
 public prefix func -(components: NSDateComponents) -> NSDateComponents {
   map(calendarUnits) { unit -> () in
     let value = components.valueForComponent(unit)
@@ -83,6 +64,17 @@ public prefix func -(components: NSDateComponents) -> NSDateComponents {
     }
   }
   return components
+}
+
+// NSDate and NSDateComponents
+public func +(date: NSDate, components: NSDateComponents) -> NSDate {
+  let calendar = components.calendar ?? NSCalendar.autoupdatingCurrentCalendar()
+  return calendar.dateByAddingComponents(components, toDate: date, options: .allZeros) ?? date
+}
+
+public func-(date: NSDate, components: NSDateComponents) -> NSDate {
+  let calendar = components.calendar ?? NSCalendar.autoupdatingCurrentCalendar()
+  return calendar.dateByAddingComponents(-components, toDate: date, options: .allZeros) ?? date
 }
 
 public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
