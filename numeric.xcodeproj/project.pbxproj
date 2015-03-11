@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20B4CAF2E3920E64A9360183 /* Pods_Specs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9D6E52E12ADA49612E1CDA /* Pods_Specs.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A144800E1AB0DBE600291E59 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A144800D1AB0DBE600291E59 /* Operators.swift */; };
 		A14D6FF719E553110015A944 /* TimeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D6FF619E553110015A944 /* TimeSpec.swift */; };
 		A1CB992819DBE6C800E678ED /* Numeric.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CB992719DBE6C800E678ED /* Numeric.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1CB993C19DBE6EA00E678ED /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CB993B19DBE6EA00E678ED /* Bytes.swift */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		0E9D6E52E12ADA49612E1CDA /* Pods_Specs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Specs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A94273EF9C4B7BC1C276164 /* Pods-Specs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Specs/Pods-Specs.debug.xcconfig"; sourceTree = "<group>"; };
+		A144800D1AB0DBE600291E59 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Numeric/Operators.swift; sourceTree = SOURCE_ROOT; };
 		A14D6FF619E553110015A944 /* TimeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSpec.swift; sourceTree = "<group>"; };
 		A1CB992219DBE6C800E678ED /* Numeric.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Numeric.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CB992619DBE6C800E678ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				A1CB993B19DBE6EA00E678ED /* Bytes.swift */,
 				A1CB993D19DBE72E00E678ED /* Bytes.playground */,
 				A1F6F34119E54AE800634736 /* Time.swift */,
+				A144800D1AB0DBE600291E59 /* Operators.swift */,
 				A1F6F34019E54AA500634736 /* Time.playground */,
 				A1CB992519DBE6C800E678ED /* Supporting Files */,
 			);
@@ -290,6 +293,7 @@
 			files = (
 				A1F6F34219E54AE800634736 /* Time.swift in Sources */,
 				A1CB993C19DBE6EA00E678ED /* Bytes.swift in Sources */,
+				A144800E1AB0DBE600291E59 /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
