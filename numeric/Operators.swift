@@ -17,10 +17,10 @@ let calendarUnits: [NSCalendarUnit] = [
   NSCalendarUnit.CalendarUnitYearForWeekOfYear
 ]
 
-public func +(left: NSDateComponents, right: NSDateComponents) -> NSDateComponents {
+public func +(lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
   map(calendarUnits) { unit -> () in
-    let leftValue = left.valueForComponent(unit)
-    let rightValue = right.valueForComponent(unit)
+    let leftValue = lhs.valueForComponent(unit)
+    let rightValue = rhs.valueForComponent(unit)
     var value: Int
 
     if leftValue != Int(NSDateComponentUndefined) && rightValue != Int(NSDateComponentUndefined) {
@@ -31,9 +31,9 @@ public func +(left: NSDateComponents, right: NSDateComponents) -> NSDateComponen
       value = leftValue
     }
 
-    left.setValue(value, forComponent: unit)
+    lhs.setValue(value, forComponent: unit)
   }
-  return left
+  return lhs
 }
 
 public func +(date: NSDate, components: NSDateComponents) -> NSDate {
@@ -51,10 +51,10 @@ public prefix func +(components: NSDateComponents) -> NSDateComponents {
   return components
 }
 
-public func -(left: NSDateComponents, right: NSDateComponents) -> NSDateComponents {
+public func -(lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
   map(calendarUnits) { unit -> () in
-    let leftValue = left.valueForComponent(unit)
-    let rightValue = right.valueForComponent(unit)
+    let leftValue = lhs.valueForComponent(unit)
+    let rightValue = rhs.valueForComponent(unit)
     var value: Int
 
     if leftValue != Int(NSDateComponentUndefined) && rightValue != Int(NSDateComponentUndefined) {
@@ -65,9 +65,9 @@ public func -(left: NSDateComponents, right: NSDateComponents) -> NSDateComponen
       value = leftValue
     }
 
-    left.setValue(value, forComponent: unit)
+    lhs.setValue(value, forComponent: unit)
   }
-  return left
+  return lhs
 }
 
 public func-(date: NSDate, components: NSDateComponents) -> NSDate {
