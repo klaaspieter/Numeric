@@ -98,7 +98,7 @@ public func +(left: NSDateComponents, right: NSDateComponents) -> NSDateComponen
   map(calendarUnits) { unit -> () in
     let leftValue = left.valueForComponent(unit)
     let rightValue = right.valueForComponent(unit)
-    let value: Int
+    var value: Int
 
     if leftValue != Int(NSDateComponentUndefined) && rightValue != Int(NSDateComponentUndefined) {
       value = leftValue + rightValue
@@ -132,7 +132,7 @@ public func -(left: NSDateComponents, right: NSDateComponents) -> NSDateComponen
   map(calendarUnits) { unit -> () in
     let leftValue = left.valueForComponent(unit)
     let rightValue = right.valueForComponent(unit)
-    let value: Int
+    var value: Int
 
     if leftValue != Int(NSDateComponentUndefined) && rightValue != Int(NSDateComponentUndefined) {
       value = leftValue - rightValue
@@ -161,3 +161,11 @@ public prefix func -(components: NSDateComponents) -> NSDateComponents {
   }
   return components
 }
+
+public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
+  return lhs === rhs || lhs.compare(rhs) == .OrderedSame
+}
+public func <(lhs: NSDate, rhs: NSDate) -> Bool {
+  return lhs.compare(rhs) == .OrderedAscending
+}
+extension NSDate: Comparable { }

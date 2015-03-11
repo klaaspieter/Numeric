@@ -117,5 +117,14 @@ class TimeSpec : QuickSpec {
       components.minute = -40
       expect(1.day + 1.hour - 40.minutes) == components
     }
+
+    context("comparing") {
+      it("can compare dates") {
+        let date = 1.day.ago
+        expect(date) == date
+        expect(2.hours.fromNow) > 1.hour.ago
+        expect(1.month.fromNow) < 2.months.fromNow
+      }
+    }
   }
 }
