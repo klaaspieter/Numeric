@@ -1,0 +1,6 @@
+osx_image: xcode611
+language: objective-c
+script: bundle exec rake test:ci
+cache:
+  - bundler
+  - cocoapods
