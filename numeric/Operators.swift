@@ -1,24 +1,24 @@
 import Foundation
 
 let calendarUnits: [NSCalendarUnit] = [
-  NSCalendarUnit.CalendarUnitEra,
-  NSCalendarUnit.CalendarUnitYear,
-  NSCalendarUnit.CalendarUnitMonth,
-  NSCalendarUnit.CalendarUnitDay,
-  NSCalendarUnit.CalendarUnitHour,
-  NSCalendarUnit.CalendarUnitMinute,
-  NSCalendarUnit.CalendarUnitSecond,
-  NSCalendarUnit.CalendarUnitNanosecond,
-  NSCalendarUnit.CalendarUnitWeekday,
-  NSCalendarUnit.CalendarUnitWeekdayOrdinal,
-  NSCalendarUnit.CalendarUnitQuarter,
-  NSCalendarUnit.CalendarUnitWeekOfMonth,
-  NSCalendarUnit.CalendarUnitWeekOfYear,
-  NSCalendarUnit.CalendarUnitYearForWeekOfYear
+  NSCalendarUnit.Era,
+  NSCalendarUnit.Year,
+  NSCalendarUnit.Month,
+  NSCalendarUnit.Day,
+  NSCalendarUnit.Hour,
+  NSCalendarUnit.Minute,
+  NSCalendarUnit.Second,
+  NSCalendarUnit.Nanosecond,
+  NSCalendarUnit.Weekday,
+  NSCalendarUnit.WeekdayOrdinal,
+  NSCalendarUnit.Quarter,
+  NSCalendarUnit.WeekOfMonth,
+  NSCalendarUnit.WeekOfYear,
+  NSCalendarUnit.YearForWeekOfYear
 ]
 
 public func apply(lhs: NSDateComponents, rhs: NSDateComponents, f: ((Int, Int) -> Int)) -> NSDateComponents {
-  map(calendarUnits) { unit -> () in
+  calendarUnits.forEach { unit -> () in
     let leftValue = lhs.valueForComponent(unit)
     let rightValue = rhs.valueForComponent(unit)
     var value: Int
@@ -38,16 +38,16 @@ public func apply(lhs: NSDateComponents, rhs: NSDateComponents, f: ((Int, Int) -
 
 // NSDateComponents
 public func +(lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
-  return apply(lhs, rhs, +)
+  return apply(lhs, rhs: rhs, f: +)
 }
 
 public func -(lhs: NSDateComponents, rhs: NSDateComponents) -> NSDateComponents {
-  return apply(lhs, rhs, -)
+  return apply(lhs, rhs: rhs, f: -)
 }
 
 // Prefix operators
 public prefix func +(components: NSDateComponents) -> NSDateComponents {
-  map(calendarUnits) { unit -> () in
+  calendarUnits.forEach { unit -> () in
     let value = components.valueForComponent(unit)
     if value != Int(NSDateComponentUndefined) {
       components.setValue(abs(value), forComponent:unit)
@@ -57,7 +57,7 @@ public prefix func +(components: NSDateComponents) -> NSDateComponents {
 }
 
 public prefix func -(components: NSDateComponents) -> NSDateComponents {
-  map(calendarUnits) { unit -> () in
+  calendarUnits.forEach { unit -> () in
     let value = components.valueForComponent(unit)
     if value != Int(NSDateComponentUndefined) {
       components.setValue(abs(value) * -1, forComponent:unit)
@@ -69,12 +69,12 @@ public prefix func -(components: NSDateComponents) -> NSDateComponents {
 // NSDate and NSDateComponents
 public func +(date: NSDate, components: NSDateComponents) -> NSDate {
   let calendar = components.calendar ?? NSCalendar.autoupdatingCurrentCalendar()
-  return calendar.dateByAddingComponents(components, toDate: date, options: .allZeros) ?? date
+  return calendar.dateByAddingComponents(components, toDate: date, options: []) ?? date
 }
 
 public func-(date: NSDate, components: NSDateComponents) -> NSDate {
   let calendar = components.calendar ?? NSCalendar.autoupdatingCurrentCalendar()
-  return calendar.dateByAddingComponents(-components, toDate: date, options: .allZeros) ?? date
+  return calendar.dateByAddingComponents(-components, toDate: date, options: []) ?? date
 }
 
 public func ==(lhs: NSDate, rhs: NSDate) -> Bool {

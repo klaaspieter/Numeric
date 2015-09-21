@@ -8,13 +8,13 @@ class TimeSpec : QuickSpec {
   override func spec() {
     describe("extensions") {
       it("provides the applicable date component") {
-        let components = [1.second: NSCalendarUnit.CalendarUnitSecond,
-          1.minute: .CalendarUnitMinute,
-          1.hour: .CalendarUnitHour,
-          1.day: .CalendarUnitDay,
-          1.week: .CalendarUnitWeekOfYear,
-          1.month: .CalendarUnitMonth,
-          1.year: .CalendarUnitYear]
+        let components = [1.second: NSCalendarUnit.Second,
+          1.minute: .Minute,
+          1.hour: .Hour,
+          1.day: .Day,
+          1.week: .WeekOfYear,
+          1.month: .Month,
+          1.year: .Year]
 
         for (component, unit) in components {
           expect(component.valueForComponent(unit)) == 1
@@ -26,7 +26,7 @@ class TimeSpec : QuickSpec {
       let calendar = NSCalendar.currentCalendar()
       let components = NSDateComponents()
       components.month = 1
-      let date = calendar.dateByAddingComponents(components, toDate: NSDate(), options:NSCalendarOptions.allZeros)!
+      let date = calendar.dateByAddingComponents(components, toDate: NSDate(), options: NSCalendarOptions())!
       expect(1.month.fromNow.timeIntervalSinceNow) ≈ date.timeIntervalSinceNow ± 1
     }
 
@@ -34,7 +34,7 @@ class TimeSpec : QuickSpec {
       let calendar = NSCalendar.currentCalendar()
       let components = NSDateComponents()
       components.year = -2
-      let date = calendar.dateByAddingComponents(components, toDate: NSDate(), options: NSCalendarOptions.allZeros)!
+      let date = calendar.dateByAddingComponents(components, toDate: NSDate(), options: NSCalendarOptions())!
       expect(2.years.ago.timeIntervalSinceNow) ≈ date.timeIntervalSinceNow ± 1
     }
 
@@ -85,11 +85,11 @@ class TimeSpec : QuickSpec {
         let calendar = NSCalendar.currentCalendar()
         let components1 = NSDateComponents()
         components1.hour = 1
-        let date1 = calendar.dateByAddingComponents(components1, toDate: NSDate(), options: NSCalendarOptions.allZeros)!
+        let date1 = calendar.dateByAddingComponents(components1, toDate: NSDate(), options: NSCalendarOptions())!
 
         let components2 = NSDateComponents()
         components2.hour = 2
-        let date2 = calendar.dateByAddingComponents(components2, toDate: date1, options: NSCalendarOptions.allZeros)!
+        let date2 = calendar.dateByAddingComponents(components2, toDate: date1, options: NSCalendarOptions())!
 
         expect((1.hour.fromNow + 2.hours).timeIntervalSinceNow) ≈ date2.timeIntervalSinceNow ± 1
       }
@@ -121,11 +121,11 @@ class TimeSpec : QuickSpec {
         let calendar = NSCalendar.currentCalendar()
         let components1 = NSDateComponents()
         components1.hour = 1
-        let date1 = calendar.dateByAddingComponents(components1, toDate: NSDate(), options: NSCalendarOptions.allZeros)!
+        let date1 = calendar.dateByAddingComponents(components1, toDate: NSDate(), options: NSCalendarOptions())!
 
         let components2 = NSDateComponents()
         components2.hour = -2
-        let date2 = calendar.dateByAddingComponents(components2, toDate: date1, options: NSCalendarOptions.allZeros)!
+        let date2 = calendar.dateByAddingComponents(components2, toDate: date1, options: NSCalendarOptions())!
 
         expect((1.hour.fromNow - 2.hours).timeIntervalSinceNow) ≈ date2.timeIntervalSinceNow ± 1
       }

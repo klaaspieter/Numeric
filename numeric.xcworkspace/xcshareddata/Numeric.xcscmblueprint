@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F5B97DC9114B93D9B0FB87EF8A8C7161E66F05CB+++FCCD67B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64+++C32EC7D" : 0,
+    "95438028B10BBB846574013D29F154A00556A9D1+++676680C" : 0,
+    "F5B97DC9114B93D9B0FB87EF8A8C7161E66F05CB+++FCCD67B" : 0,
+    "95438028B10BBB846574013D29F154A00556A9D1+++AA05A06" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FCA7FAD9-ABBE-4AE6-A5B2-081FDE8F228D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64+++C32EC7D" : "NumericVendor\/Quick",
+    "95438028B10BBB846574013D29F154A00556A9D1+++676680C" : "NumericVendor\/Quick\/Externals\/Nimble",
+    "F5B97DC9114B93D9B0FB87EF8A8C7161E66F05CB+++FCCD67B" : "Numeric",
+    "95438028B10BBB846574013D29F154A00556A9D1+++AA05A06" : "NumericVendor\/Quick\/Externals\/Nimble"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Numeric",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Numeric.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/quick-bdd\/Nimble.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "95438028B10BBB846574013D29F154A00556A9D1+++676680C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/quick-bdd\/Nimble.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "95438028B10BBB846574013D29F154A00556A9D1+++AA05A06"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Quick\/Quick.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64+++C32EC7D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/klaaspieter\/Numeric.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F5B97DC9114B93D9B0FB87EF8A8C7161E66F05CB+++FCCD67B"
+    }
+  ]
+}

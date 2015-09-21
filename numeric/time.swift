@@ -2,13 +2,13 @@ import Foundation
 
 extension NSDateComponents {
   public var ago: NSDate {
-    let units = [NSCalendarUnit.CalendarUnitYear,
-      .CalendarUnitMonth,
-      .CalendarUnitWeekOfYear,
-      .CalendarUnitDay,
-      .CalendarUnitHour,
-      .CalendarUnitMinute,
-      .CalendarUnitSecond]
+    let units = [NSCalendarUnit.Year,
+      .Month,
+      .WeekOfYear,
+      .Day,
+      .Hour,
+      .Minute,
+      .Second]
 
       for unit in units {
         let value = self.valueForComponent(unit)
@@ -29,7 +29,7 @@ extension NSDateComponents {
       calendar = NSCalendar.currentCalendar()
     }
 
-    let date = calendar.dateByAddingComponents(self, toDate: NSDate(), options: NSCalendarOptions.allZeros)
+    let date = calendar.dateByAddingComponents(self, toDate: NSDate(), options: NSCalendarOptions())
     return date!
   }
 }
@@ -37,37 +37,37 @@ extension NSDateComponents {
 extension Int {
   public var second: NSDateComponents { return self.seconds }
   public var seconds: NSDateComponents {
-    return toDateComponent(NSCalendarUnit.CalendarUnitSecond)
+    return toDateComponent(NSCalendarUnit.Second)
   }
 
   public var minute: NSDateComponents { return self.minutes }
   public var minutes: NSDateComponents {
-    return toDateComponent(NSCalendarUnit.CalendarUnitMinute)
+    return toDateComponent(NSCalendarUnit.Minute)
   }
 
   public var hour: NSDateComponents { return self.hours }
   public var hours: NSDateComponents {
-    return toDateComponent(NSCalendarUnit.CalendarUnitHour)
+    return toDateComponent(NSCalendarUnit.Hour)
   }
 
   public var day: NSDateComponents { return self.days }
   public var days: NSDateComponents {
-    return toDateComponent(NSCalendarUnit.CalendarUnitDay)
+    return toDateComponent(NSCalendarUnit.Day)
   }
 
   public var week: NSDateComponents { return self.weeks }
   public var weeks: NSDateComponents {
-    return toDateComponent(NSCalendarUnit.CalendarUnitWeekOfYear)
+    return toDateComponent(NSCalendarUnit.WeekOfYear)
   }
 
   public var month: NSDateComponents { return self.months }
   public var months: NSDateComponents {
-    return toDateComponent(NSCalendarUnit.CalendarUnitMonth)
+    return toDateComponent(NSCalendarUnit.Month)
   }
 
   public var year: NSDateComponents { return self.years }
   public var years: NSDateComponents {
-    return toDateComponent(NSCalendarUnit.CalendarUnitYear)
+    return toDateComponent(NSCalendarUnit.Year)
   }
 
   private func toDateComponent(unit: NSCalendarUnit) -> NSDateComponents {
@@ -78,13 +78,13 @@ extension Int {
 }
 
 extension NSDate {
-  public class func create(era: Int = 1, year: Int = 2001, month: Int = 1, day: Int = 1, hour: Int = 0, minute: Int = 0, second: Int = 0, nanosecond: Int = 0) -> NSDate {
+  public class func create(era era: Int = 1, year: Int = 2001, month: Int = 1, day: Int = 1, hour: Int = 0, minute: Int = 0, second: Int = 0, nanosecond: Int = 0) -> NSDate {
     return NSDateComponents.create(era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond).date!
   }
 }
 
 extension NSDateComponents {
-  public class func create(era: Int = 1, year: Int = 2001, month: Int = 1, day: Int = 1, hour: Int = 0, minute: Int = 0, second: Int = 0, nanosecond: Int = 0, calendar: NSCalendar? = nil) -> NSDateComponents {
+  public class func create(era era: Int = 1, year: Int = 2001, month: Int = 1, day: Int = 1, hour: Int = 0, minute: Int = 0, second: Int = 0, nanosecond: Int = 0, calendar: NSCalendar? = nil) -> NSDateComponents {
     let components = NSDateComponents()
     components.era = era
     components.year = year

@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'Specs' do
-  pod "Quick", "~> 0.2.2"
-  pod "Nimble", "~> 0.3.0"
+  pod "Quick"
+  pod "Nimble", "2.0.0-rc.3"
 end
 
